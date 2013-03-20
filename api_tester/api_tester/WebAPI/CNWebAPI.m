@@ -34,7 +34,7 @@
     return [[user objectForKey:@"IdUser"] intValue]>0;
 }
 
--(void)commandWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
+-(void)postWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
 {
     NSMutableURLRequest *apiRequest =
     [self multipartFormRequestWithMethod:@"POST"

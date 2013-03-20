@@ -48,7 +48,11 @@
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                                 <items>
                                     <navigationItem title="Title" id="13">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="31Q-43-U2d"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="31Q-43-U2d">
+                                            <connections>
+                                                <action selector="cancel:" destination="6" id="lZt-Py-Ee5"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Login" style="done" id="0Gx-EO-yVx">
                                             <connections>
                                                 <action selector="done:" destination="6" id="3q4-Eu-IBu"/>
@@ -57,11 +61,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="09i-2n-gn5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="09i-2n-gn5">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-JX-cSf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-JX-cSf">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -87,6 +91,10 @@
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="yf5-Bx-wHg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fldPassword" destination="09i-2n-gn5" id="pr7-fS-9FD"/>
+                        <outlet property="fldUsername" destination="ijJ-JX-cSf" id="UCb-Mm-9MM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,7 +105,10 @@
         <class className="CNFlipsideViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CNFlipsideViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="fldPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fldUsername" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="CNMainViewController" superclassName="UIViewController">

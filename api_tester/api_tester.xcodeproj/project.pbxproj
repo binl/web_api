@@ -31,6 +31,12 @@
 		CAFB017D16F9314600212A6B /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB017316F9314600212A6B /* AFXMLRequestOperation.m */; };
 		CAFB017E16F9314600212A6B /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB017516F9314600212A6B /* UIImageView+AFNetworking.m */; };
 		CAFB018116F931B300212A6B /* CNWebAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB018016F931B300212A6B /* CNWebAPI.m */; };
+		CAFB018416F93D5800212A6B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB018316F93D5800212A6B /* SystemConfiguration.framework */; };
+		CAFB018616F93D5E00212A6B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB018516F93D5E00212A6B /* MobileCoreServices.framework */; };
+		CAFB018816F93D6C00212A6B /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB018716F93D6C00212A6B /* AssetsLibrary.framework */; };
+		CAFB018A16F93D7800212A6B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB018916F93D7800212A6B /* CFNetwork.framework */; };
+		CAFB018C16F93D8800212A6B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB018B16F93D8800212A6B /* CoreImage.framework */; };
+		CAFB018E16F93D9200212A6B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB018D16F93D9200212A6B /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +81,12 @@
 		CAFB017516F9314600212A6B /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		CAFB017F16F931B300212A6B /* CNWebAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNWebAPI.h; path = WebAPI/CNWebAPI.h; sourceTree = "<group>"; };
 		CAFB018016F931B300212A6B /* CNWebAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CNWebAPI.m; path = WebAPI/CNWebAPI.m; sourceTree = "<group>"; };
+		CAFB018316F93D5800212A6B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CAFB018516F93D5E00212A6B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CAFB018716F93D6C00212A6B /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CAFB018916F93D7800212A6B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CAFB018B16F93D8800212A6B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CAFB018D16F93D9200212A6B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAFB018E16F93D9200212A6B /* Security.framework in Frameworks */,
+				CAFB018C16F93D8800212A6B /* CoreImage.framework in Frameworks */,
+				CAFB018A16F93D7800212A6B /* CFNetwork.framework in Frameworks */,
+				CAFB018816F93D6C00212A6B /* AssetsLibrary.framework in Frameworks */,
+				CAFB018616F93D5E00212A6B /* MobileCoreServices.framework in Frameworks */,
+				CAFB018416F93D5800212A6B /* SystemConfiguration.framework in Frameworks */,
 				CAFB013716F930E800212A6B /* UIKit.framework in Frameworks */,
 				CAFB013916F930E800212A6B /* Foundation.framework in Frameworks */,
 				CAFB013B16F930E800212A6B /* CoreGraphics.framework in Frameworks */,
@@ -112,6 +130,12 @@
 		CAFB013516F930E800212A6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAFB018D16F93D9200212A6B /* Security.framework */,
+				CAFB018B16F93D8800212A6B /* CoreImage.framework */,
+				CAFB018916F93D7800212A6B /* CFNetwork.framework */,
+				CAFB018716F93D6C00212A6B /* AssetsLibrary.framework */,
+				CAFB018516F93D5E00212A6B /* MobileCoreServices.framework */,
+				CAFB018316F93D5800212A6B /* SystemConfiguration.framework */,
 				CAFB013616F930E800212A6B /* UIKit.framework */,
 				CAFB013816F930E800212A6B /* Foundation.framework */,
 				CAFB013A16F930E800212A6B /* CoreGraphics.framework */,
@@ -399,6 +423,7 @@
 				CAFB016016F930E800212A6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

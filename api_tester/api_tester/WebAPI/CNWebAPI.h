@@ -21,6 +21,6 @@ typedef void (^JSONResponseBlock)(NSDictionary* json);
 //check whether there's an authorized user
 -(BOOL)isAuthorized;
 //send an API command to the server
--(void)commandWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock;
+-(void)postWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock;
 
 @end

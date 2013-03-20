@@ -16,8 +16,11 @@
 
 @interface CNFlipsideViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField* fldUsername;
+@property (strong, nonatomic) IBOutlet UITextField* fldPassword;
 @property (weak, nonatomic) id <CNFlipsideViewControllerDelegate> delegate;
 
 - (IBAction)done:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end
