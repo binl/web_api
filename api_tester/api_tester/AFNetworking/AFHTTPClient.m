@@ -472,7 +472,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
             }
         }
     }
-
+    NSLog(@"request: %@", [request description]);
 	return request;
 }
 

@@ -10,6 +10,8 @@
 
 #import "CNMainViewController.h"
 
+#import "CNUserGeoManager.h"
+#import "CNWebAPI.h"
 @implementation CNAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -21,6 +23,9 @@
     // Override point for customization after application launch.
     CNMainViewController *controller = (CNMainViewController *)self.window.rootViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    
+    if([[CNWebAPI sharedInstance] isAuthorized])
+        [CNUserGeoManager updateUserGeo];
     return YES;
 }
 							
@@ -39,6 +44,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [CNUserGeoManager updateUserGeo];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

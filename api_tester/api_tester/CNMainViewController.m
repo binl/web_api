@@ -7,12 +7,14 @@
 //
 
 #import "CNMainViewController.h"
-
+#import "CNUserGeoManager.h"
 @interface CNMainViewController ()
 
 @end
 
 @implementation CNMainViewController
+
+@synthesize latiText, longtiText, updateGeoBtn;
 
 - (void)viewDidLoad
 {
@@ -35,9 +37,19 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
+    //if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self];
-    }
+    //}
+}
+
+
+#pragma mark - Test actions
+
+-(IBAction)manuelUpdateGeo:(id)sender{
+    NSNumber *longtNum = [NSNumber numberWithFloat:[longtiText.text floatValue]];
+    NSNumber *latiNum = [NSNumber numberWithFloat:[latiText.text floatValue]];
+    
+    [CNUserGeoManager updateUserGeoWithCoord:[NSArray arrayWithObjects:longtNum, latiNum, nil]];
 }
 
 @end

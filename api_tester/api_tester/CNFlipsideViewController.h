@@ -11,7 +11,7 @@
 @class CNFlipsideViewController;
 
 @protocol CNFlipsideViewControllerDelegate
-- (void)flipsideViewControllerDidFinish:(CNFlipsideViewController *)controller;
+- (void)flipsideViewControllerDidFinish:(UIViewController *)controller;
 @end
 
 @interface CNFlipsideViewController : UIViewController

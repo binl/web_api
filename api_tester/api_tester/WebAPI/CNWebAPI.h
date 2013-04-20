@@ -9,6 +9,7 @@
 #import "AFHTTPClient.h"
 
 #import "AFNetworking.h"
+#import "CNConstants.h"
 
 typedef void (^JSONResponseBlock)(NSDictionary* json);
 @interface CNWebAPI : AFHTTPClient
@@ -20,6 +21,7 @@ typedef void (^JSONResponseBlock)(NSDictionary* json);
 
 //check whether there's an authorized user
 -(BOOL)isAuthorized;
+-(void)saveUser:(NSDictionary *) userInfo;
 //send an API command to the server
 -(void)postWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock;
 

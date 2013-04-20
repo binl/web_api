@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [fldUsername becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,22 +64,29 @@
         return;
     }
     
+    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
     //check whether it's a login or register
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                  @"login", @"command",
-                                  fldUsername.text, @"username",
-                                  hashedPassword, @"password",
+                                  @"/users", APICommand,
+                                  deviceId, SignInIdentifier,
+                                  fldUsername.text, SignInName,
+                                  hashedPassword, SignInToken,
+                                  @"NONE", SignInSNS,
+                                  @"dummyUser1", @"username",
+                                  @"dummy1@user.com", @"email",
                                   nil];
     
     //make the call to the web API
     [[CNWebAPI sharedInstance] postWithParams:params
                                onCompletion:^(NSDictionary *json) {
                                    //result returned
-                                   NSDictionary* res = [[json objectForKey:@"result"] objectAtIndex:0];
+                                   //TODO: Parse the result
+                                   NSDictionary* res = json;
                                    
-                                   if ([json objectForKey:@"error"]==nil && [[res objectForKey:@"IdUser"] intValue]>0) {
-                                       [[CNWebAPI sharedInstance] setUser: res];
-                                       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                                   if ([json objectForKey:@"error"]==nil) {
+                                       NSLog(@"json: %@", res);
+                                       [[CNWebAPI sharedInstance] saveUser: res];
                                        
                                        //show message to the user
                                        [[[UIAlertView alloc] initWithTitle:@"Logged in"

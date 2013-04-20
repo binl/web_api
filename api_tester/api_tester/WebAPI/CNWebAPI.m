@@ -8,8 +8,6 @@
 
 #import "CNWebAPI.h"
 //the web location of the service
-#define kAPIHost @"http://localhost/xampp/"
-#define kAPIPath @"iReporter/"
 
 @implementation CNWebAPI
 @synthesize user;
@@ -31,22 +29,23 @@
 
 -(BOOL)isAuthorized
 {
-    return [[user objectForKey:@"IdUser"] intValue]>0;
+    return [[user objectForKey:@"userID"] intValue]>0;
 }
 
 -(void)postWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
 {
-    NSMutableURLRequest *apiRequest =
-    [self multipartFormRequestWithMethod:@"POST"
-                                    path:[NSString stringWithFormat:@"%@%@", kAPIPath, [params objectForKey:@"command"]]
-                              parameters:params
-               constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-                   //TODO: attach file if needed
-               }];
+    [self setParameterEncoding:AFJSONParameterEncoding];
     
+    NSMutableURLRequest *apiRequest =
+    [self requestWithMethod:@"POST"
+                       path:[NSString stringWithFormat:@"%@%@", kAPIPath, [params objectForKey:@"command"]]
+                 parameters:params];
+    
+    NSLog(@"Client: %@", [self description]);
     AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: apiRequest];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success!
+        NSLog(@"[WebAPI]Response status code: %d", [[operation response] statusCode]);
         completionBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //failure :(
@@ -66,7 +65,7 @@
     
     if (self != nil) {
         //initialize the object
-        user = nil;
+        user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         
@@ -76,4 +75,10 @@
     
     return self;
 }
+
+- (void)saveUser:(NSDictionary *) userInfo {
+    [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"user"];
+    [self setUser:userInfo];
+}
+
 @end

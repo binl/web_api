@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA77735D1721E9A600451863 /* CNNewYellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA77735C1721E9A600451863 /* CNNewYellViewController.m */; };
+		CA7773601722339F00451863 /* CNUserGeoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA77735F1722339F00451863 /* CNUserGeoManager.m */; };
 		CAFB013716F930E800212A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB013616F930E800212A6B /* UIKit.framework */; };
 		CAFB013916F930E800212A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB013816F930E800212A6B /* Foundation.framework */; };
 		CAFB013B16F930E800212A6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB013A16F930E800212A6B /* CoreGraphics.framework */; };
@@ -40,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA77735B1721E9A600451863 /* CNNewYellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNNewYellViewController.h; sourceTree = "<group>"; };
+		CA77735C1721E9A600451863 /* CNNewYellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNNewYellViewController.m; sourceTree = "<group>"; };
+		CA77735E1722339F00451863 /* CNUserGeoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserGeoManager.h; sourceTree = "<group>"; };
+		CA77735F1722339F00451863 /* CNUserGeoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserGeoManager.m; sourceTree = "<group>"; };
 		CAFB013316F930E800212A6B /* api_tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = api_tester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFB013616F930E800212A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CAFB013816F930E800212A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +93,7 @@
 		CAFB018916F93D7800212A6B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CAFB018B16F93D8800212A6B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		CAFB018D16F93D9200212A6B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CAFB018F16F947F900212A6B /* CNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNConstants.h; path = WebAPI/CNConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,9 +162,13 @@
 				CAFB015716F930E800212A6B /* CNMainViewController.m */,
 				CAFB015916F930E800212A6B /* CNFlipsideViewController.h */,
 				CAFB015A16F930E800212A6B /* CNFlipsideViewController.m */,
+				CA77735B1721E9A600451863 /* CNNewYellViewController.h */,
+				CA77735C1721E9A600451863 /* CNNewYellViewController.m */,
 				CAFB015316F930E800212A6B /* api_tester.xcdatamodeld */,
 				CAFB018216F931B800212A6B /* WebAPI */,
 				CAFB013F16F930E800212A6B /* Supporting Files */,
+				CA77735E1722339F00451863 /* CNUserGeoManager.h */,
+				CA77735F1722339F00451863 /* CNUserGeoManager.m */,
 			);
 			path = api_tester;
 			sourceTree = "<group>";
@@ -215,6 +226,7 @@
 			children = (
 				CAFB017F16F931B300212A6B /* CNWebAPI.h */,
 				CAFB018016F931B300212A6B /* CNWebAPI.m */,
+				CAFB018F16F947F900212A6B /* CNConstants.h */,
 			);
 			name = WebAPI;
 			sourceTree = "<group>";
@@ -301,6 +313,8 @@
 				CAFB017D16F9314600212A6B /* AFXMLRequestOperation.m in Sources */,
 				CAFB017E16F9314600212A6B /* UIImageView+AFNetworking.m in Sources */,
 				CAFB018116F931B300212A6B /* CNWebAPI.m in Sources */,
+				CA77735D1721E9A600451863 /* CNNewYellViewController.m in Sources */,
+				CA7773601722339F00451863 /* CNUserGeoManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

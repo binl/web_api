@@ -1,2 +1,6 @@
-api_tester/api_tester.xcodeproj/xcuserdata/
-api_tester/DerivedData/
+DerivedData
+xcuserdata
+
+.DS_Store
+
+*.xcworkspace
