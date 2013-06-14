@@ -21,8 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    CNMainViewController *controller = (CNMainViewController *)self.window.rootViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    //CNMainViewController *controller = (CNMainViewController *)self.window.rootViewController;
+    //controller.managedObjectContext = self.managedObjectContext;
     
     if([[CNWebAPI sharedInstance] isAuthorized])
         [CNUserGeoManager updateUserGeo];

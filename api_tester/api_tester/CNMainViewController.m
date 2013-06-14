@@ -8,7 +8,16 @@
 
 #import "CNMainViewController.h"
 #import "CNUserGeoManager.h"
-@interface CNMainViewController ()
+#import "CNDataCentral.h"
+
+
+#import "CNYellsListCell.h"
+
+
+
+@interface CNMainViewController (){
+    NSMutableArray *yellsList;
+}
 
 @end
 
@@ -19,6 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Should get data from server:
+    yellsList = [[CNDataCentral sharedInstance] yells];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -26,6 +40,30 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 94;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return yellsList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"CNYellsListCell";
+        
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil){
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
+        cell = [topLevelObjects objectAtIndex:0];
+    }
+    
+    //(CNYellsListCell *)cell
+    
+    return cell;
+
 }
 
 #pragma mark - Flipside View
