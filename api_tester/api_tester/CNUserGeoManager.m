@@ -68,6 +68,11 @@
                                      }
                                  }];
     
+    [[CNWebAPI sharedInstance] getWithCommand:@"/timelines" onCompletion:^(NSDictionary *json) {
+        NSDictionary* res = json;
+        NSLog(@"json: %@", res);
+        }];
+    
 }
 
 @end

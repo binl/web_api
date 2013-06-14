@@ -37,17 +37,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
-    //}
+    [[segue destinationViewController] setDelegate:self];
 }
 
 
 #pragma mark - Test actions
 
 -(IBAction)manuelUpdateGeo:(id)sender{
-    NSNumber *longtNum = [NSNumber numberWithFloat:[longtiText.text floatValue]];
-    NSNumber *latiNum = [NSNumber numberWithFloat:[latiText.text floatValue]];
+    
+    NSNumber *longtNum = [NSNumber numberWithFloat:3.2f];
+    NSNumber *latiNum = [NSNumber numberWithFloat:3.2f];
     
     [CNUserGeoManager updateUserGeoWithCoord:[NSArray arrayWithObjects:longtNum, latiNum, nil]];
 }

@@ -55,6 +55,29 @@
     [operation start];
 }
 
+-(void)getWithCommand:(NSString *)command onCompletion:(JSONResponseBlock)completionBlock
+{
+    [self setParameterEncoding:AFJSONParameterEncoding];
+    
+    NSMutableURLRequest *apiRequest =
+    [self requestWithMethod:@"GET"
+                       path:[NSString stringWithFormat:@"%@%@", kAPIPath, command]
+                 parameters:nil];
+    
+    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: apiRequest];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //success!
+        NSLog(@"[WebAPI]Response status code: %d", [[operation response] statusCode]);
+        completionBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //failure :(
+        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
+    }];
+    
+    [operation start];
+}
+
+
 #pragma mark - init
 //intialize the API class with the destination host name
 

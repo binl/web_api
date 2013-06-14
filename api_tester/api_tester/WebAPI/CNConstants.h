@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 CrushNuts. All rights reserved.
 //
 
-#define kAPIHost @"http://128.237.130.209:3000"
+#define kAPIHost @"http://houndshark.mrhooray.com:9999"
 #define kAPIPath @""
 #define kAPILoginAction @""
 

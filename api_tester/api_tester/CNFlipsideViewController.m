@@ -85,7 +85,7 @@
                                    NSDictionary* res = json;
                                    
                                    if ([json objectForKey:@"error"]==nil) {
-                                       NSLog(@"json: %@", res);
+                                       NSLog(@"\n\njson: %@", res);
                                        [[CNWebAPI sharedInstance] saveUser: res];
                                        
                                        //show message to the user
@@ -97,7 +97,7 @@
                                        [self.delegate flipsideViewControllerDidFinish:self];
                                    } else {
                                        //error
-                                       NSLog(@"Error: %@", [json description]);
+                                       NSLog(@"\n\nError: %@", [json description]);
                                        return;
                                    }
                                }];
