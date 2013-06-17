@@ -8,6 +8,8 @@
 
 #import "CNMapViewController.h"
 
+#import "CNCircleView.h"
+
 @interface CNMapViewController ()
 
 @end
