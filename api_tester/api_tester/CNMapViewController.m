@@ -8,8 +8,6 @@
 
 #import "CNMapViewController.h"
 
-#import "CNCircleView.h"
-
 @interface CNMapViewController ()
 
 @end
@@ -36,13 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    self.viewAnime = [[CNCircleView alloc] initWithFrame:CGRectMake(120, 120, 100, 100)];
-//    [self.view addSubview:self.viewAnime];
-//
-    //[self animate];
-    //[NSThread detachNewThreadSelector:@selector(animate) toTarget:self withObject:nil];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
