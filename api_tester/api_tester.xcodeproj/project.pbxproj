@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA119597176E7BE70003D324 /* home_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA119596176E7BE70003D324 /* home_bg.jpg */; };
+		CA11959E176EDEA50003D324 /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = CA11959D176EDEA50003D324 /* radar.png */; };
 		CA77735D1721E9A600451863 /* CNNewYellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA77735C1721E9A600451863 /* CNNewYellViewController.m */; };
 		CA7773601722339F00451863 /* CNUserGeoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA77735F1722339F00451863 /* CNUserGeoManager.m */; };
 		CAAD4639176AE45100FE4358 /* CNYellsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD4637176AE45100FE4358 /* CNYellsListCell.m */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA119596176E7BE70003D324 /* home_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home_bg.jpg; sourceTree = "<group>"; };
+		CA11959D176EDEA50003D324 /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
 		CA77735B1721E9A600451863 /* CNNewYellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNNewYellViewController.h; sourceTree = "<group>"; };
 		CA77735C1721E9A600451863 /* CNNewYellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNNewYellViewController.m; sourceTree = "<group>"; };
 		CA77735E1722339F00451863 /* CNUserGeoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserGeoManager.h; sourceTree = "<group>"; };
@@ -128,6 +132,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA11958F176E732A0003D324 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA119595176E7BE70003D324 /* images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CA119595176E7BE70003D324 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CA11959D176EDEA50003D324 /* radar.png */,
+				CA119596176E7BE70003D324 /* home_bg.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		CAAD4635176AE40E00FE4358 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +196,7 @@
 		CAFB013E16F930E800212A6B /* api_tester */ = {
 			isa = PBXGroup;
 			children = (
+				CA11958F176E732A0003D324 /* Resources */,
 				CAFB016116F9311200212A6B /* External */,
 				CAFB014716F930E800212A6B /* CNAppDelegate.h */,
 				CAFB014816F930E800212A6B /* CNAppDelegate.m */,
@@ -315,6 +337,8 @@
 				CAFB014F16F930E800212A6B /* Default-568h@2x.png in Resources */,
 				CAFB015216F930E800212A6B /* MainStoryboard.storyboard in Resources */,
 				CAAD463A176AE45100FE4358 /* CNYellsListCell.xib in Resources */,
+				CA119597176E7BE70003D324 /* home_bg.jpg in Resources */,
+				CA11959E176EDEA50003D324 /* radar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

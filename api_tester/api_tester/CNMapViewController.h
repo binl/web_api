@@ -10,8 +10,9 @@
 
 @interface CNMapViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIView *viewAnime;
+@property (nonatomic, strong) IBOutlet UIImageView *radarAnime;
+@property (nonatomic, strong) IBOutlet UIImageView *radarAnime2;
+@property (nonatomic, strong) IBOutlet UIImageView *radarAnime3;
 
-
--(IBAction)animate:(id)sender;
+-(void)animateView:(UIView *)view WithDelay:(CGFloat)delay;
 @end

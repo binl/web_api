@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="4Gw-lc-RDS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qhk-82-KMm">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -23,7 +23,7 @@
         <scene sceneID="h9Z-z6-edb">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="oHM-yG-jlj" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3mc-dU-3v4">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -44,39 +44,79 @@
             <objects>
                 <viewController id="Jro-q8-ywy" customClass="CNMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mol-gi-Kdz">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEc-Vs-hXh">
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="home_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="BPn-qn-n17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radar.png" translatesAutoresizingMaskIntoConstraints="NO" id="BWE-6a-cp1"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radar.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Wb-Fc-Z07"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radar.png" translatesAutoresizingMaskIntoConstraints="NO" id="qGD-3a-yMd"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radar.png" translatesAutoresizingMaskIntoConstraints="NO" id="BzL-op-4hi">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="1mx-Bl-9IS"/>
+                                    <constraint firstAttribute="height" constant="175" id="chs-1B-UaU"/>
+                                </constraints>
+                            </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-Fl-shq">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="8ki-oC-PJD"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1E-xI-JyL">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="animate:" destination="Jro-q8-ywy" eventType="touchUpInside" id="mwD-6F-ADk"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Messages found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYn-iR-Z6w">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="T6p-uD-HM3"/>
+                                    <constraint firstAttribute="width" constant="209" id="dgb-7S-9Mq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvx-7J-XjD">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="7UM-Q2-5nq"/>
+                                    <constraint firstAttribute="width" constant="146" id="Tfh-Dg-iDT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zEc-Vs-hXh" firstAttribute="centerX" secondItem="Mol-gi-Kdz" secondAttribute="centerX" type="default" id="0x0-d9-LTQ"/>
-                            <constraint firstItem="zEc-Vs-hXh" firstAttribute="top" secondItem="Mol-gi-Kdz" secondAttribute="top" constant="82" id="La7-dd-R9a"/>
-                            <constraint firstAttribute="bottom" secondItem="D1E-xI-JyL" secondAttribute="bottom" constant="83" id="PzV-xg-dQO"/>
-                            <constraint firstItem="zEc-Vs-hXh" firstAttribute="centerX" secondItem="D1E-xI-JyL" secondAttribute="centerX" type="default" id="SGk-1U-vZH"/>
-                            <constraint firstAttribute="bottom" secondItem="zEc-Vs-hXh" secondAttribute="bottom" constant="219" id="UCA-50-zfe"/>
-                            <constraint firstItem="zEc-Vs-hXh" firstAttribute="leading" secondItem="Mol-gi-Kdz" secondAttribute="leading" constant="105" id="d0Z-Q3-EEO"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="trailing" secondItem="BzL-op-4hi" secondAttribute="trailing" type="default" id="2Ua-pY-9bR"/>
+                            <constraint firstItem="BPn-qn-n17" firstAttribute="trailing" secondItem="Mol-gi-Kdz" secondAttribute="trailing" type="default" id="5Lt-kZ-oxc"/>
+                            <constraint firstItem="BPn-qn-n17" firstAttribute="bottom" secondItem="Mol-gi-Kdz" secondAttribute="bottom" type="default" id="63Y-Kf-N4q"/>
+                            <constraint firstItem="UYn-iR-Z6w" firstAttribute="top" secondItem="Mol-gi-Kdz" secondAttribute="top" constant="222" id="ADK-Gx-R9y"/>
+                            <constraint firstAttribute="bottom" secondItem="dSc-Fl-shq" secondAttribute="bottom" priority="1" constant="367" type="user" id="CGC-Y2-HnH"/>
+                            <constraint firstItem="BPn-qn-n17" firstAttribute="top" secondItem="Mol-gi-Kdz" secondAttribute="top" type="default" id="CsT-xq-w2O"/>
+                            <constraint firstItem="dSc-Fl-shq" firstAttribute="trailing" secondItem="Mol-gi-Kdz" secondAttribute="trailing" type="default" id="EaC-Ld-8Bb"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="leading" secondItem="BzL-op-4hi" secondAttribute="leading" type="default" id="FIy-Gs-jJN"/>
+                            <constraint firstItem="BPn-qn-n17" firstAttribute="leading" secondItem="Mol-gi-Kdz" secondAttribute="leading" type="default" id="H0X-Hg-mEY"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="top" secondItem="Mol-gi-Kdz" secondAttribute="top" constant="123" id="Ina-r0-IYb"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="bottom" secondItem="qGD-3a-yMd" secondAttribute="bottom" type="default" id="LTH-T9-b8h"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="centerX" secondItem="UYn-iR-Z6w" secondAttribute="centerX" type="default" id="Nqq-uA-HcB"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="top" secondItem="BWE-6a-cp1" secondAttribute="top" type="default" id="O7d-uq-ehr"/>
+                            <constraint firstItem="BzL-op-4hi" firstAttribute="bottom" secondItem="BWE-6a-cp1" secondAttribute="bottom" type="default" id="SZL-fE-x7a"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="top" secondItem="qGD-3a-yMd" secondAttribute="top" type="default" id="TJZ-vS-Cve"/>
+                            <constraint firstItem="dSc-Fl-shq" firstAttribute="top" secondItem="Mol-gi-Kdz" secondAttribute="top" type="user" id="Ysr-2e-14b"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="bottom" secondItem="BWE-6a-cp1" secondAttribute="bottom" type="default" id="bci-XY-8aW"/>
+                            <constraint firstItem="dSc-Fl-shq" firstAttribute="leading" secondItem="Mol-gi-Kdz" secondAttribute="leading" type="default" id="f6I-VU-7Im"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="leading" secondItem="BWE-6a-cp1" secondAttribute="leading" type="default" id="hNy-uX-HjR"/>
+                            <constraint firstItem="Uvx-7J-XjD" firstAttribute="top" secondItem="Mol-gi-Kdz" secondAttribute="top" constant="165" id="htW-IL-Bf0"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="trailing" secondItem="qGD-3a-yMd" secondAttribute="trailing" type="default" id="lAT-BS-kkL"/>
+                            <constraint firstItem="BWE-6a-cp1" firstAttribute="leading" secondItem="qGD-3a-yMd" secondAttribute="leading" type="default" id="lGn-E6-7qO"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="centerX" secondItem="dSc-Fl-shq" secondAttribute="centerX" type="default" id="ldx-5k-67U"/>
+                            <constraint firstItem="qGD-3a-yMd" firstAttribute="trailing" secondItem="BWE-6a-cp1" secondAttribute="trailing" type="default" id="sw0-sN-djB"/>
+                            <constraint firstItem="8Wb-Fc-Z07" firstAttribute="centerX" secondItem="Uvx-7J-XjD" secondAttribute="centerX" type="default" id="usF-oZ-MPQ"/>
+                            <constraint firstItem="BzL-op-4hi" firstAttribute="top" secondItem="qGD-3a-yMd" secondAttribute="top" type="default" id="zmR-Mo-pBe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="6Hq-CI-SR7"/>
                     <connections>
-                        <outlet property="viewAnime" destination="zEc-Vs-hXh" id="2h6-FP-nSV"/>
+                        <outlet property="radarAnime" destination="BzL-op-4hi" id="r1b-qN-vpE"/>
+                        <outlet property="radarAnime2" destination="qGD-3a-yMd" id="Fgn-X7-8r1"/>
+                        <outlet property="radarAnime3" destination="BWE-6a-cp1" id="WVD-Yr-OWJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgZ-lp-THE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,7 +128,7 @@
             <objects>
                 <viewController id="2" customClass="CNMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qup-vV-RGg">
@@ -140,7 +180,7 @@
             <objects>
                 <viewController id="cJR-eF-TY8" customClass="CNNewYellViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p4b-la-wzC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzz-m3-EHr">
@@ -187,11 +227,14 @@
             <point key="canvasLocation" x="587" y="284"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home_bg.jpg" width="640" height="1136"/>
+        <image name="radar.png" width="320" height="320"/>
+    </resources>
     <classes>
         <class className="CNMainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CNMainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="manuelUpdateGeo:"/>
                 <relationship kind="outlet" name="latiText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="longtiText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableYellsList" candidateClass="UITableView"/>
@@ -201,8 +244,9 @@
         <class className="CNMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CNMapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="animate:"/>
-                <relationship kind="outlet" name="viewAnime" candidateClass="UIView"/>
+                <relationship kind="outlet" name="radarAnime" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="radarAnime2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="radarAnime3" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="CNNewYellViewController" superclassName="UIViewController">
@@ -220,6 +264,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
