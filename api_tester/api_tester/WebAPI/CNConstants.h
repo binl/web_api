@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 CrushNuts. All rights reserved.
 //
 
-#define kAPIHost @"http://houndshark.mrhooray.com:9999"
+#define kAPIHost @"http://blueshark.mrhooray.com:8000"
 #define kAPIPath @""
 #define kAPILoginAction @""
 
@@ -20,7 +20,7 @@
 #define SignInName          @"name"
 
 #pragma make - common protocol fields
-#define UserID              @"userID"
+#define UserID              @"userId"
 #define UserLocation        @"location"
 
 

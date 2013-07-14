@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface CNUserGeoManager : NSObject
+<CLLocationManagerDelegate> {
+    int counter;
+}
 
-//+(CNUserGeoManager *)sharedInstance;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSNumber *latitude;
+
++(CNUserGeoManager *)sharedInstance;
 
 +(void)updateUserGeo;
 +(void)updateUserGeoWithCoord: (NSArray *)coordinates;

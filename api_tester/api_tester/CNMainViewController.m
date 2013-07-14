@@ -13,7 +13,8 @@
 
 #import "CNYellsListCell.h"
 
-
+#import "CNWebAPI.h"
+#import "CNConstants.h"
 
 @interface CNMainViewController (){
     NSMutableArray *yellsList;
@@ -23,18 +24,43 @@
 
 @implementation CNMainViewController
 
-@synthesize latiText, longtiText, updateGeoBtn;
+@synthesize tableYellsList;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // Should get data from server:
     yellsList = [[CNDataCentral sharedInstance] yells];
-    
-    
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    // Should get data from server:
+    NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userId"], @"recipient",
+                                  nil];
+    
+    NSLog(@"\n %@", [params description]);
+    
+    //make the call to the web API
+    [[CNWebAPI sharedInstance] getCommand:@"/timelines" WithParams:params
+                                onCompletion:^(NSDictionary *json) {
+                                    //result returned
+                                    //TODO: Parse the result
+                                    NSDictionary* res = json;
+                                    
+                                    if ([json objectForKey:@"error"]==nil) {
+                                        NSLog(@"json: %@", res);
+                                        yellsList = [res objectForKey:@"timelines"];
+                                        [self.tableYellsList reloadData];
+                                    } else {
+                                        NSLog(@"Error: %@", [json description]);
+                                        return;
+                                    }
+                                }];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -48,7 +74,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;//yellsList.count;
+    return yellsList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,7 +86,9 @@
         cell = [topLevelObjects objectAtIndex:0];
     }
     
-    //(CNYellsListCell *)cell
+    [[(CNYellsListCell *)cell lblYellContent]
+     setText:[[[yellsList objectAtIndex:indexPath.row]
+               objectForKey:@"yell"] objectForKey:@"content"]];
     
     return cell;
 

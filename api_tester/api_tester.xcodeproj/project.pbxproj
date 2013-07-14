@@ -15,6 +15,7 @@
 		CAAD463A176AE45100FE4358 /* CNYellsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAAD4638176AE45100FE4358 /* CNYellsListCell.xib */; };
 		CAAD463D176AEA2C00FE4358 /* CNDataCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD463C176AEA2C00FE4358 /* CNDataCentral.m */; };
 		CAAD4640176AF18F00FE4358 /* CNMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD463F176AF18E00FE4358 /* CNMapViewController.m */; };
+		CAC50EEC17925770004CAC06 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC50EEB1792576F004CAC06 /* CoreLocation.framework */; };
 		CAFB013716F930E800212A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB013616F930E800212A6B /* UIKit.framework */; };
 		CAFB013916F930E800212A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB013816F930E800212A6B /* Foundation.framework */; };
 		CAFB013B16F930E800212A6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFB013A16F930E800212A6B /* CoreGraphics.framework */; };
@@ -61,6 +62,7 @@
 		CAAD463C176AEA2C00FE4358 /* CNDataCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDataCentral.m; sourceTree = "<group>"; };
 		CAAD463E176AF18E00FE4358 /* CNMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNMapViewController.h; sourceTree = "<group>"; };
 		CAAD463F176AF18E00FE4358 /* CNMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNMapViewController.m; sourceTree = "<group>"; };
+		CAC50EEB1792576F004CAC06 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CAFB013316F930E800212A6B /* api_tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = api_tester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFB013616F930E800212A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CAFB013816F930E800212A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC50EEC17925770004CAC06 /* CoreLocation.framework in Frameworks */,
 				CAFB018E16F93D9200212A6B /* Security.framework in Frameworks */,
 				CAFB018C16F93D8800212A6B /* CoreImage.framework in Frameworks */,
 				CAFB018A16F93D7800212A6B /* CFNetwork.framework in Frameworks */,
@@ -159,6 +162,22 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
+		CAC50EEA179254F4004CAC06 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAFB015016F930E800212A6B /* MainStoryboard.storyboard */,
+				CAFB015616F930E800212A6B /* CNMainViewController.h */,
+				CAFB015716F930E800212A6B /* CNMainViewController.m */,
+				CAAD463E176AF18E00FE4358 /* CNMapViewController.h */,
+				CAAD463F176AF18E00FE4358 /* CNMapViewController.m */,
+				CAFB015916F930E800212A6B /* CNFlipsideViewController.h */,
+				CAFB015A16F930E800212A6B /* CNFlipsideViewController.m */,
+				CA77735B1721E9A600451863 /* CNNewYellViewController.h */,
+				CA77735C1721E9A600451863 /* CNNewYellViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		CAFB012A16F930E800212A6B = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +198,7 @@
 		CAFB013516F930E800212A6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAC50EEB1792576F004CAC06 /* CoreLocation.framework */,
 				CAFB018D16F93D9200212A6B /* Security.framework */,
 				CAFB018B16F93D8800212A6B /* CoreImage.framework */,
 				CAFB018916F93D7800212A6B /* CFNetwork.framework */,
@@ -200,15 +220,7 @@
 				CAFB016116F9311200212A6B /* External */,
 				CAFB014716F930E800212A6B /* CNAppDelegate.h */,
 				CAFB014816F930E800212A6B /* CNAppDelegate.m */,
-				CAFB015016F930E800212A6B /* MainStoryboard.storyboard */,
-				CAFB015616F930E800212A6B /* CNMainViewController.h */,
-				CAFB015716F930E800212A6B /* CNMainViewController.m */,
-				CAAD463E176AF18E00FE4358 /* CNMapViewController.h */,
-				CAAD463F176AF18E00FE4358 /* CNMapViewController.m */,
-				CAFB015916F930E800212A6B /* CNFlipsideViewController.h */,
-				CAFB015A16F930E800212A6B /* CNFlipsideViewController.m */,
-				CA77735B1721E9A600451863 /* CNNewYellViewController.h */,
-				CA77735C1721E9A600451863 /* CNNewYellViewController.m */,
+				CAC50EEA179254F4004CAC06 /* ViewControllers */,
 				CA77735E1722339F00451863 /* CNUserGeoManager.h */,
 				CA77735F1722339F00451863 /* CNUserGeoManager.m */,
 				CAAD463B176AEA2C00FE4358 /* CNDataCentral.h */,

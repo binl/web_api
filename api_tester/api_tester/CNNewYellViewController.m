@@ -42,7 +42,8 @@
         return;
     }
     
-    NSArray *coordinate = [NSArray arrayWithObjects:[NSNumber numberWithFloat:40.2222], [NSNumber numberWithFloat:40.2222], nil];
+    CNUserGeoManager *mgr = [CNUserGeoManager sharedInstance];
+    NSArray *coordinate = [NSArray arrayWithObjects:mgr.longitude, mgr.latitude, nil];
     NSDictionary* geoInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"Point", @"type",
                              coordinate, @"coordinates", nil];
@@ -50,11 +51,13 @@
     
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   @"/yells", APICommand,
-                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userID"], UserID,
+                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userId"], UserID,
                                   yellText.text, YellContent,
                                   [NSNumber numberWithInt:1000], YellRadius,
                                   geoInfo, UserLocation,
                                   nil];
+    
+    NSLog(@"\n %@", [params description]);
     
     //make the call to the web API
     [[CNWebAPI sharedInstance] postWithParams:params
@@ -65,8 +68,6 @@
                                      
                                      if ([json objectForKey:@"error"]==nil) {
                                          NSLog(@"json: %@", res);
-                                         [CNUserGeoManager updateUserGeoWithCoord:coordinate];
-
                                          [self.delegate flipsideViewControllerDidFinish:self];
                                      } else {
                                          //error

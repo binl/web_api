@@ -24,11 +24,50 @@
     //CNMainViewController *controller = (CNMainViewController *)self.window.rootViewController;
     //controller.managedObjectContext = self.managedObjectContext;
     
-    if([[CNWebAPI sharedInstance] isAuthorized])
-        [CNUserGeoManager updateUserGeo];
+    if([[CNWebAPI sharedInstance] isAuthorized]) {
+        
+    }
+    else {
+        NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        
+        NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                      @"/users", APICommand,
+                                      deviceId, SignInIdentifier,
+                                      @"Test User1", SignInName,
+                                      @"", SignInToken,
+                                      @"NONE", SignInSNS,
+                                      @"dummyUser12", @"username",
+                                      @"dummy12@user.com", @"email",
+                                      nil];
+        
+        [[CNWebAPI sharedInstance] postWithParams:params
+                                     onCompletion:^(NSDictionary *json) {
+                                         //result returned
+                                         //TODO: Parse the result
+                                         NSDictionary* res = json;
+                                         
+                                         if ([json objectForKey:@"error"]==nil) {
+                                             NSLog(@"\n\njson: %@", res);
+                                             [[CNWebAPI sharedInstance] saveUser: res];
+                                             
+                                             //show message to the user
+                                             [[[UIAlertView alloc] initWithTitle:@"Logged in"
+                                                                         message:[NSString stringWithFormat:@"Welcome %@",[res objectForKey:@"username"] ]
+                                                                        delegate:nil
+                                                               cancelButtonTitle:@"Close"
+                                                               otherButtonTitles: nil] show];
+                                         } else {
+                                             //error
+                                             NSLog(@"\n\nError: %@", [json description]);
+                                             return;
+                                         }
+                                     }];
+    }
+    [CNUserGeoManager sharedInstance];
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -44,7 +83,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [CNUserGeoManager updateUserGeo];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

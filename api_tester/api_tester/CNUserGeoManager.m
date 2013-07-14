@@ -12,33 +12,68 @@
 
 @implementation CNUserGeoManager
 
-+(void)updateUserGeo{
+@synthesize locationManager;
+@synthesize longitude, latitude;
+
+
++(CNUserGeoManager *)sharedInstance {
+    static CNUserGeoManager *sharedInstance = nil;
+
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        sharedInstance = [[CNUserGeoManager alloc] init];
+        sharedInstance->counter = 0;
+        sharedInstance.locationManager = [[CLLocationManager alloc] init];
+        sharedInstance.locationManager.delegate = sharedInstance;
+        sharedInstance.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+        sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer; // 100 m
+        [sharedInstance.locationManager startUpdatingLocation];
+    });
+    
+    return sharedInstance;
+}
+
+#pragma mark - Location Delegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *newLocation = [locations objectAtIndex:0];
+    self.longitude = [NSNumber numberWithDouble:newLocation.coordinate.longitude];
+    self.latitude = [NSNumber numberWithDouble:newLocation.coordinate.latitude];
+    self->counter ++;
+
+    [self updateUserGeo];
+}
+
+-(void)updateUserGeo{
+    //Update geo location
+    if (self->counter % 10 != 1) {
+        return;
+    }
+    
+    NSLog(@"Updating!!! %d", self->counter);
+    NSArray *coordinate = [NSArray arrayWithObjects:self.longitude, self.latitude, nil];
     NSDictionary* geoInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"Point", @"type",
-                             [NSArray arrayWithObjects:[NSNumber numberWithFloat:-79.9961], [NSNumber numberWithFloat:40.4406], nil], @"coordinates"
-                             , nil];
+                             coordinate, @"coordinates", nil];
     
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   @"/geos", APICommand,
-                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userID"], UserID,
+                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userId"], UserID,
                                   geoInfo, UserLocation,
                                   nil];
-    
-    //make the call to the web API
+    NSLog(@"\nParams: %@", params);
     [[CNWebAPI sharedInstance] postWithParams:params
                                  onCompletion:^(NSDictionary *json) {
+                                     //result returned
+                                     //TODO: Parse the result
                                      NSDictionary* res = json;
                                      
                                      if ([json objectForKey:@"error"]==nil) {
-                                         NSLog(@"json: %@", res);
-                                         return;
+                                         NSLog(@"\n\njson: %@", res);
                                      } else {
-                                         //error
-                                         NSLog(@"Error: %@", [json description]);
+                                         NSLog(@"\n\nError: %@", [json description]);
                                          return;
                                      }
                                  }];
-
 }
 
 +(void)updateUserGeoWithCoord: (NSArray *)coordinates{
@@ -49,7 +84,7 @@
     
     NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                   @"/geos", APICommand,
-                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userID"], UserID,
+                                  [[[CNWebAPI sharedInstance] user] objectForKey:@"userId"], UserID,
                                   geoInfo, UserLocation,
                                   nil];
     

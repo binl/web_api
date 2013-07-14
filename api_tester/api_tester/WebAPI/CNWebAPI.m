@@ -19,17 +19,20 @@
 +(CNWebAPI *)sharedInstance
 {
     static CNWebAPI *sharedInstance = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
+    if (sharedInstance == nil) {
         sharedInstance = [[self alloc] initWithBaseURL:[NSURL URLWithString:kAPIHost]];
-    });
+        sharedInstance.user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        
+        [sharedInstance registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        [sharedInstance setDefaultHeader:@"Accept" value:@"application/json"];
+    }
     
     return sharedInstance;
 }
 
 -(BOOL)isAuthorized
 {
-    return [[user objectForKey:@"userID"] intValue]>0;
+    return [[user objectForKey:@"userId"] intValue]>0;
 }
 
 -(void)postWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
@@ -41,7 +44,31 @@
                        path:[NSString stringWithFormat:@"%@%@", kAPIPath, [params objectForKey:@"command"]]
                  parameters:params];
     
-    NSLog(@"Client: %@", [self description]);
+    NSLog(@"\nClient: %@", [self description]);
+    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: apiRequest];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //success!
+        NSLog(@"[WebAPI]Response status code: %d", [[operation response] statusCode]);
+        completionBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //failure :(
+        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
+    }];
+    
+    [operation start];
+}
+
+-(void)getCommand:(NSString *)command WithParams:(NSMutableDictionary*)params
+     onCompletion:(JSONResponseBlock)completionBlock
+{
+    [self setParameterEncoding:AFJSONParameterEncoding];
+    
+    NSMutableURLRequest *apiRequest =
+    [self requestWithMethod:@"GET"
+                       path:[NSString stringWithFormat:@"%@%@", kAPIPath, command]
+                 parameters:params];
+    
+    NSLog(@"\nClient: %@", [self description]);
     AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: apiRequest];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success!
@@ -91,8 +118,6 @@
         user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        
-        // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
         [self setDefaultHeader:@"Accept" value:@"application/json"];
     }
     
