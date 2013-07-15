@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface CNSignInViewController : UIViewController
+<UIScrollViewDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrlImageSelect;
 @property (strong, nonatomic) IBOutlet UITextField *fldShownName;
 @property (strong, nonatomic) IBOutlet UITextField *fldEmail;
 @property (strong, nonatomic) IBOutlet UITextField *fldPswd;
 
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
+- (IBAction)nextStep:(id)sender;
 @end

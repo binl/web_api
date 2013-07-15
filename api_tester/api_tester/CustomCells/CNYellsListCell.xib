@@ -67,7 +67,6 @@
 										<string key="NSFrame">{{65, 27}, {235, 73}}</string>
 										<reference key="NSSuperview" ref="538585988"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -191,6 +190,14 @@
 						<reference key="destination" ref="53927789"/>
 					</object>
 					<int key="connectionID">35</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblYellerName</string>
+						<reference key="source" ref="273270188"/>
+						<reference key="destination" ref="607982482"/>
+					</object>
+					<int key="connectionID">76</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -651,7 +658,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">75</int>
+			<int key="maxID">76</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -661,6 +668,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="imgAuthor">UIImageView</string>
 						<string key="lblYellContent">UILabel</string>
+						<string key="lblYellerName">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="imgAuthor">
@@ -669,6 +677,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="lblYellContent">
 							<string key="name">lblYellContent</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblYellerName">
+							<string key="name">lblYellerName</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>

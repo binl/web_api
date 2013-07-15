@@ -28,21 +28,23 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self animateView:self.radarAnime WithDelay:0];
-    [self animateView:self.radarAnime2 WithDelay:1.0];
-    [self animateView:self.radarAnime3 WithDelay:2.0];
+    
+    if ([[CNWebAPI sharedInstance] isAuthorized] == NO) {
+        CNSignInViewController *signInView = [[CNSignInViewController alloc]
+                                              initWithNibName:@"CNSignInViewController"
+                                              bundle:nil];
+        [self presentViewController:signInView animated:YES completion:nil];
+    }
+
+//    
+//    [self animateView:self.radarAnime WithDelay:0];
+//    [self animateView:self.radarAnime2 WithDelay:1.0];
+//    [self animateView:self.radarAnime3 WithDelay:2.0];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    if ([[CNWebAPI sharedInstance] isAuthorized] == NO) {
-//        CNSignInViewController *signInView = [[CNSignInViewController alloc]
-//                                              initWithNibName:@"CNSignInViewController"
-//                                              bundle:nil];
-//        [self presentViewController:signInView animated:YES completion:nil];
-//    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0632C71793B80B0076563F /* defaultPic-1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0632C11793B80B0076563F /* defaultPic-1.png */; };
+		CA0632C81793B80B0076563F /* defaultPic-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0632C21793B80B0076563F /* defaultPic-2.png */; };
+		CA0632C91793B80B0076563F /* defaultPic-3.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0632C31793B80B0076563F /* defaultPic-3.png */; };
+		CA0632CA1793B80B0076563F /* defaultPic-4.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0632C41793B80B0076563F /* defaultPic-4.png */; };
+		CA0632CB1793B80B0076563F /* defaultPic-5.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0632C51793B80B0076563F /* defaultPic-5.png */; };
+		CA0632CC1793B80B0076563F /* defaultPic-0.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0632C61793B80B0076563F /* defaultPic-0.png */; };
 		CA08ABA5179367CD0023B3A7 /* CNFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA08AB9E179367CD0023B3A7 /* CNFlipsideViewController.m */; };
 		CA08ABA6179367CD0023B3A7 /* CNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA08ABA0179367CD0023B3A7 /* CNMainViewController.m */; };
 		CA08ABA7179367CD0023B3A7 /* CNMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA08ABA2179367CD0023B3A7 /* CNMapViewController.m */; };
@@ -51,6 +57,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA0632C11793B80B0076563F /* defaultPic-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultPic-1.png"; sourceTree = "<group>"; };
+		CA0632C21793B80B0076563F /* defaultPic-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultPic-2.png"; sourceTree = "<group>"; };
+		CA0632C31793B80B0076563F /* defaultPic-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultPic-3.png"; sourceTree = "<group>"; };
+		CA0632C41793B80B0076563F /* defaultPic-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultPic-4.png"; sourceTree = "<group>"; };
+		CA0632C51793B80B0076563F /* defaultPic-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultPic-5.png"; sourceTree = "<group>"; };
+		CA0632C61793B80B0076563F /* defaultPic-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultPic-0.png"; sourceTree = "<group>"; };
 		CA08AB9D179367CD0023B3A7 /* CNFlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNFlipsideViewController.h; sourceTree = "<group>"; };
 		CA08AB9E179367CD0023B3A7 /* CNFlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNFlipsideViewController.m; sourceTree = "<group>"; };
 		CA08AB9F179367CD0023B3A7 /* CNMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNMainViewController.h; sourceTree = "<group>"; };
@@ -180,6 +192,12 @@
 		CA119595176E7BE70003D324 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CA0632C11793B80B0076563F /* defaultPic-1.png */,
+				CA0632C21793B80B0076563F /* defaultPic-2.png */,
+				CA0632C31793B80B0076563F /* defaultPic-3.png */,
+				CA0632C41793B80B0076563F /* defaultPic-4.png */,
+				CA0632C51793B80B0076563F /* defaultPic-5.png */,
+				CA0632C61793B80B0076563F /* defaultPic-0.png */,
 				CA11959D176EDEA50003D324 /* radar.png */,
 				CA119596176E7BE70003D324 /* home_bg.jpg */,
 			);
@@ -368,6 +386,12 @@
 				CA119597176E7BE70003D324 /* home_bg.jpg in Resources */,
 				CA11959E176EDEA50003D324 /* radar.png in Resources */,
 				CA08ABB4179368840023B3A7 /* CNSignInViewController.xib in Resources */,
+				CA0632C71793B80B0076563F /* defaultPic-1.png in Resources */,
+				CA0632C81793B80B0076563F /* defaultPic-2.png in Resources */,
+				CA0632C91793B80B0076563F /* defaultPic-3.png in Resources */,
+				CA0632CA1793B80B0076563F /* defaultPic-4.png in Resources */,
+				CA0632CB1793B80B0076563F /* defaultPic-5.png in Resources */,
+				CA0632CC1793B80B0076563F /* defaultPic-0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,11 +36,11 @@
         NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                       @"/users", APICommand,
                                       deviceId, SignInIdentifier,
-                                      @"Buboo", SignInName,
+                                      @"Buboooo", SignInName,
                                       @"", SignInToken,
                                       @"NONE", SignInSNS,
-                                      @"dummyUser", @"username",
-                                      @"dummy@user.com", @"email",
+                                      @"dummyUser11", @"username",
+                                      @"dummy111@user.com", @"email",
                                       nil];
         
         [[CNWebAPI sharedInstance] postWithParams:params

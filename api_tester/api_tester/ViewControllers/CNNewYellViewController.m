@@ -57,7 +57,7 @@
                                   geoInfo, UserLocation,
                                   nil];
     
-    NSLog(@"\n %@", [params description]);
+    NSLog(@"\nYell Params: %@", [params description]);
     
     //make the call to the web API
     [[CNWebAPI sharedInstance] postWithParams:params

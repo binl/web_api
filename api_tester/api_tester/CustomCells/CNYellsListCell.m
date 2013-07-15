@@ -14,6 +14,6 @@
 
 @implementation CNYellsListCell
 
-@synthesize lblYellContent, imgAuthor;
+@synthesize lblYellerName, lblYellContent, imgAuthor;
 
 @end

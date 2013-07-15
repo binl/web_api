@@ -13,13 +13,19 @@
 
 #define kSalt @"adlfu3489tyh2jnkLIUGI&%EV(&0982cbgrykxjnk8855"
 
-@interface CNSignInViewController ()
+#define CONTENT_WIDTH 200
+#define PAGE_PADDING 30
+
+@interface CNSignInViewController () {
+    int currentPic;
+}
 
 @end
 
 @implementation CNSignInViewController
 
 @synthesize fldEmail, fldPswd, fldShownName;
+@synthesize scrlImageSelect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,12 +40,66 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // a page is the width of the scroll view
+    NSUInteger numberPages = 6; //6 default pictures
+    
+    self.scrlImageSelect.pagingEnabled = YES;
+    self.scrlImageSelect.contentSize =
+    CGSizeMake((CONTENT_WIDTH + PAGE_PADDING)* numberPages
+               , CGRectGetHeight(self.scrlImageSelect.frame));
+    self.scrlImageSelect.showsHorizontalScrollIndicator = NO;
+    self.scrlImageSelect.showsVerticalScrollIndicator = NO;
+    self.scrlImageSelect.scrollsToTop = NO;
+    self.scrlImageSelect.delegate = self;
+    self.scrlImageSelect.contentOffset = CGPointMake(0, 0);
+    for (UIView *subview in self.scrlImageSelect.subviews) {
+        [subview removeFromSuperview];
+    }
+    
+    for (int i = 0; i < 6 ; i++) {
+        [self loadScrollViewWithPage:i];
+    }
+    
+    currentPic = 0;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [self.fldEmail becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Scroll view related
+
+- (void)loadScrollViewWithPage:(NSUInteger)page
+{
+    if (page >= 6)
+        return;
+    
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"defaultPic-%d.png", page]];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
+    CGRect frame;
+    frame.origin.x = PAGE_PADDING/2 + (CONTENT_WIDTH + PAGE_PADDING) * page;
+    frame.origin.y = 0;
+    frame.size.width = CONTENT_WIDTH;
+    frame.size.height = CONTENT_WIDTH;
+    imgView.frame = frame;
+    
+    [self.scrlImageSelect addSubview:imgView];
+}
+
+// at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // switch the indicator when more than 50% of the previous/next page is visible
+    NSUInteger page = floor((self.scrlImageSelect.contentOffset.x - CONTENT_WIDTH / 2) / CONTENT_WIDTH) + 1;
+    currentPic = page;
+    // a possible optimization would be to unload the views+controllers which are no longer visible
 }
 
 
@@ -79,8 +139,9 @@
                                   fldShownName.text, SignInName,
                                   hashedPassword, SignInToken,
                                   @"NONE", SignInSNS,
-                                  fldEmail, @"username",
-                                  fldEmail, @"email",
+                                  fldShownName.text, @"username",
+                                  fldEmail.text, @"email",
+                                  [NSString stringWithFormat:@"%d", currentPic], @"avatar",
                                   nil];
     
     //make the call to the web API
@@ -96,7 +157,7 @@
                                          //Now that the user has signed in
                                          //Show image picker and set the user
                                          
-                                         
+                                         [self dismissViewControllerAnimated:YES completion:nil];
                                      } else {
                                          //error
                                          NSLog(@"\n\nError: %@", [json description]);
@@ -110,6 +171,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)nextStep:(id)sender {
+    [self.fldEmail resignFirstResponder];
+    [self.fldPswd resignFirstResponder];
+    [self.fldShownName resignFirstResponder];
+}
 
+#pragma mark - textField delegate
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
 
 @end

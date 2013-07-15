@@ -90,6 +90,15 @@
      setText:[[[yellsList objectAtIndex:indexPath.row]
                objectForKey:@"yell"] objectForKey:@"content"]];
     
+    [[(CNYellsListCell *)cell lblYellerName]
+     setText:[[[[yellsList objectAtIndex:indexPath.row]
+               objectForKey:@"yell"] objectForKey:@"user"] objectForKey:@"name"]];
+    
+    NSString *imageName = [[[[yellsList objectAtIndex:indexPath.row]objectForKey:@"yell"]
+                            objectForKey:@"user"] objectForKey:@"avatar"];
+    
+    [[(CNYellsListCell *)cell imgAuthor]
+     setImage:[UIImage imageNamed:[NSString stringWithFormat:@"defaultPic-%@.png", imageName]]];
     return cell;
 
 }

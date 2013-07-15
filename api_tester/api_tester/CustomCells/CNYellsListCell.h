@@ -11,6 +11,7 @@
 @interface CNYellsListCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *imgAuthor;
+@property (nonatomic, strong) IBOutlet UILabel *lblYellerName;
 @property (nonatomic, strong) IBOutlet UILabel *lblYellContent;
 
 @end
