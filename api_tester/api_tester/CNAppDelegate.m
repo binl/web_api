@@ -23,51 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
-    //controller.managedObjectContext = self.managedObjectContext;
-    
     if([[CNWebAPI sharedInstance] isAuthorized]) {
-        
+        [CNUserGeoManager sharedInstance];
     }
-    else {
-
-        NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-        
-        NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"/users", APICommand,
-                                      deviceId, SignInIdentifier,
-                                      @"Buboooo", SignInName,
-                                      @"", SignInToken,
-                                      @"NONE", SignInSNS,
-                                      @"dummyUser11", @"username",
-                                      @"dummy111@user.com", @"email",
-                                      nil];
-        
-        [[CNWebAPI sharedInstance] postWithParams:params
-                                     onCompletion:^(NSDictionary *json) {
-                                         //result returned
-                                         //TODO: Parse the result
-                                         NSDictionary* res = json;
-                                         
-                                         if ([json objectForKey:@"error"]==nil) {
-                                             NSLog(@"\n\njson: %@", res);
-                                             [[CNWebAPI sharedInstance] saveUser: res];
-                                             
-                                             //show message to the user
-                                             [[[UIAlertView alloc] initWithTitle:@"Logged in"
-                                                                         message:[NSString stringWithFormat:@"Welcome %@",[res objectForKey:@"username"] ]
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"Close"
-                                                               otherButtonTitles: nil] show];
-                                         } else {
-                                             //error
-                                             NSLog(@"\n\nError: %@", [json description]);
-                                             return;
-                                         }
-                                     }];
-    }
-    [CNUserGeoManager sharedInstance];
-    
     return YES;
 }
 

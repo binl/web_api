@@ -235,7 +235,6 @@
         <class className="CNMainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CNMainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="manuelUpdateGeo:"/>
                 <relationship kind="outlet" name="tableYellsList" candidateClass="UITableView"/>
             </relationships>
         </class>

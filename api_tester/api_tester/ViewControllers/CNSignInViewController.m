@@ -8,6 +8,7 @@
 
 #import "CNSignInViewController.h"
 
+#import "CNUserGeoManager.h"
 #import "CNWebAPI.h"
 #include <CommonCrypto/CommonDigest.h>
 
@@ -156,7 +157,7 @@
                                          [[CNWebAPI sharedInstance] saveUser: res];
                                          //Now that the user has signed in
                                          //Show image picker and set the user
-                                         
+                                         [CNUserGeoManager sharedInstance];
                                          [self dismissViewControllerAnimated:YES completion:nil];
                                      } else {
                                          //error
