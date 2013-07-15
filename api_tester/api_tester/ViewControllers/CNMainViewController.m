@@ -107,14 +107,4 @@
 }
 
 
-#pragma mark - Test actions
-
--(IBAction)manuelUpdateGeo:(id)sender{
-    
-    NSNumber *longtNum = [NSNumber numberWithFloat:3.2f];
-    NSNumber *latiNum = [NSNumber numberWithFloat:3.2f];
-    
-    [CNUserGeoManager updateUserGeoWithCoord:[NSArray arrayWithObjects:longtNum, latiNum, nil]];
-}
-
 @end

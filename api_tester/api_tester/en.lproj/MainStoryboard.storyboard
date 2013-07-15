@@ -231,6 +231,34 @@
         <image name="home_bg.jpg" width="640" height="1136"/>
         <image name="radar.png" width="320" height="320"/>
     </resources>
+    <classes>
+        <class className="CNMainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNMainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="manuelUpdateGeo:"/>
+                <relationship kind="outlet" name="tableYellsList" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CNMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="radarAnime" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="radarAnime2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="radarAnime3" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="CNNewYellViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CNNewYellViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="yell:"/>
+                <relationship kind="outlet" name="yellText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

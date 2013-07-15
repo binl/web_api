@@ -8,6 +8,8 @@
 
 #import "CNMapViewController.h"
 
+#import "CNWebAPI.h"
+#import "CNSignInViewController.h"
 @interface CNMapViewController ()
 
 @end
@@ -34,6 +36,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    
+//    if ([[CNWebAPI sharedInstance] isAuthorized] == NO) {
+//        CNSignInViewController *signInView = [[CNSignInViewController alloc]
+//                                              initWithNibName:@"CNSignInViewController"
+//                                              bundle:nil];
+//        [self presentViewController:signInView animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning

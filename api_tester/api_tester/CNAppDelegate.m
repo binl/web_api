@@ -12,6 +12,8 @@
 
 #import "CNUserGeoManager.h"
 #import "CNWebAPI.h"
+
+#import "CNSignInViewController.h"
 @implementation CNAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -21,23 +23,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    //CNMainViewController *controller = (CNMainViewController *)self.window.rootViewController;
+    
     //controller.managedObjectContext = self.managedObjectContext;
     
     if([[CNWebAPI sharedInstance] isAuthorized]) {
         
     }
     else {
+
         NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
         
         NSMutableDictionary* params =[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                       @"/users", APICommand,
                                       deviceId, SignInIdentifier,
-                                      @"Test User1", SignInName,
+                                      @"Buboo", SignInName,
                                       @"", SignInToken,
                                       @"NONE", SignInSNS,
-                                      @"dummyUser12", @"username",
-                                      @"dummy12@user.com", @"email",
+                                      @"dummyUser", @"username",
+                                      @"dummy@user.com", @"email",
                                       nil];
         
         [[CNWebAPI sharedInstance] postWithParams:params

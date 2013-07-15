@@ -11,7 +11,7 @@
 
 @interface CNUserGeoManager : NSObject
 <CLLocationManagerDelegate> {
-    int counter;
+    BOOL shouldUpdate;
 }
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -19,7 +19,4 @@
 @property (strong, nonatomic) NSNumber *latitude;
 
 +(CNUserGeoManager *)sharedInstance;
-
-+(void)updateUserGeo;
-+(void)updateUserGeoWithCoord: (NSArray *)coordinates;
 @end
